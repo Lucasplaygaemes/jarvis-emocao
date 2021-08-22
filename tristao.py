@@ -68,7 +68,7 @@ conversa.train('chatterbot.corpus.portuguese.compliment',
           'chatterbot.corpus.portuguese.money',
           'chatterbot.corpus.portuguese.games',
 )
-humor = 'muuiito triste' 
+humor = 'tristao' 
 
 conversa = ListTrainer(bot)
 conversa.train([
