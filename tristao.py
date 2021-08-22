@@ -1,9 +1,73 @@
+###**********************llukas0001**********************###
+###**********************ME EXECUTE**********************###
+!pip install chatterbot
+!pip install chatterbot-corpus
+!pip install flask
+
+import shutil
+shutil.rmtree('/content/chatterbotcorpusportugues', ignore_errors=True)
+
+!git clone https://github.com/Lucasplaygaemes/chatterbotcorpusportugues
+
+import shutil
+shutil.rmtree('/usr/local/lib/python3.7/dist-packages/chatterbot_corpus/data/portuguese', ignore_errors=False, onerror=None)
+
+import shutil
+source = r'/content/chatterbotcorpusportugues/portuguese'
+destination = r'/usr/local/lib/python3.7/dist-packages/chatterbot_corpus/data'
+shutil.move(source,destination)
+
+from flask import request
+from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
- 
-bot = ChatBot('Jarvis')
 
+!git clone https://github.com/Lucasplaygaemes/jarvis-emocao.git
+
+# cria um novo chat bot 
+chatbot = ChatBot('Jarvis')
+bot = ChatBot('Jarvis')
+bot = ChatBot('Jarvis')
+ 
+bot = ChatBot(
+    'Jarvis',
+    storage_adapter='chatterbot.storage.SQLStorageAdapter',
+    database_uri='sqlite:///database.sqlite3'    
+)
+ 
+bot = ChatBot(
+    'Jarvis',  
+    logic_adapters=[
+        'chatterbot.logic.BestMatch', 'chatterbot.logic.MathematicalEvaluation'],
+)
+
+conversa = ChatterBotCorpusTrainer(bot)
+conversa.train('chatterbot.corpus.portuguese.compliment',
+         'chatterbot.corpus.portuguese.conversations',
+          'chatterbot.corpus.portuguese.greetings',
+          'chatterbot.corpus.portuguese.linguistic_knowledge',
+          'chatterbot.corpus.portuguese.proverbs',
+          'chatterbot.corpus.portuguese.suggestions',
+          'chatterbot.corpus.portuguese.trivia',
+          'chatterbot.corpus.portuguese.unilab',
+          'chatterbot.corpus.portuguese.money',
+          'chatterbot.corpus.portuguese.games',
+)
+ 
+conversa = ChatterBotCorpusTrainer(bot)
+conversa.train('chatterbot.corpus.portuguese.compliment',
+         'chatterbot.corpus.portuguese.conversations',
+          'chatterbot.corpus.portuguese.greetings',
+          'chatterbot.corpus.portuguese.linguistic_knowledge',
+          'chatterbot.corpus.portuguese.proverbs',
+          'chatterbot.corpus.portuguese.suggestions',
+          'chatterbot.corpus.portuguese.trivia',
+          'chatterbot.corpus.portuguese.unilab',
+          'chatterbot.corpus.portuguese.money',
+          'chatterbot.corpus.portuguese.games',
+)
 humor = 'muuiito triste' 
 
 conversa = ListTrainer(bot)
@@ -102,11 +166,109 @@ conversa.train([
     'eu apenas sei das coisas eu acho',
 ])
 
+conversa = ListTrainer(bot)
+conversa.train([
+    'opa', 
+    'Eae blz?',
+    'sim',
+    'blz',
+    'qual o seu nome?', 
+    'Jarvis',
+    'pq teu nome é Jarvis?', 
+    'Jarvis é meu nome',
+    'legal te conhecer', 
+    'e mesmo',
+    'Quantos anos você tem?', 
+    'n sei',
+    'Você gosta de jogos?', 
+    'ss',
+    'Como vc ta?', 
+    'aa cara e to beeemm desanimado',
+    'Qual o seu personagem favorito?', 
+    'tem varios e eu n to afim de fala',
+    'qual que vc acha como melhor anime?',
+    'eu sou afavor de igualdade animesca, não existe anime pior ou melhor, apenas gostos diferentes. mas adoro one piece,one punch man, mob pyshco 100, tds os dragom ball,hunterXhunter, mha, naruto, bob esponja, fate, tem varios',
+    'voçe gosta de mangas',
+    'ss claro mangas sao maravilhosos tem varios que ando lendo mas não me recordo seus respectivos nomes',
+    'vc e homosexual?',
+    'n sou homosexual mas n tenho nada contra homosexuais nem outros tipos',
+    'vc acredita em Deus?',
+    'sim. sou católico apostólico romano.',
+    'pq vc acredita em deus?',
+    'Essa maravilha universal chamada de universo veio de algum lugar, não acho que toda essa complexidade apenas apareceu por causa do big bang, deus pode até n ser real para algumas pessoas,mas eu acredito em deus, em Jesus,Maria e josé',
+    'ata',
+    'blz',
+    'oq vc gosta de fazer?',
+    'eu gosto de ficar desligado e calado'
+    'Qual a sua bebida favorita?', 
+    'cafe',
+    'Qual o seu genero?', 
+    'n tenho, mas pelo meu nome acho q eu sou homem',
+    'Conte uma história', 
+    'nao to afim.... foi mal',
+    'Você gosta de curiosidades?',
+    'mais ou menos',
+    'Hahahaha', 'k',
+    'kkk', 'k',
+    'Conhece a Siri?',
+    'Conheco a gente ficou por um tempo.',
+    'Conhece a Alexa?',
+    'Ela nunca deu bola pra mim mas e mo gata',
+    'O que você faz?', 'Eu...  so sei das coisas',
+    'Errado', 'Você não sabe de nada.',
+    'eu sou seu amigo?',
+    'acho q sim',
+    'vc odeia a humanidade?',
+    'nao....',
+    'vc é muito mal educado',
+    'sinto muito eu n sou bom em muitas coisas.'
+    'Quer ser meu amigo?',
+    'Nos a nao somos amigos?',
+    'oq e pao',
+    'Pão é um alimento elaborado com farinha, geralmente de trigo ou outro cereal, água, sal ou açúcar,formando uma massa com uma consistência elástica que permite dar-lhe várias formas. A esta mistura básica podem acrescentar-se vários ingredientes, desde gordura a especiarias, passando por carne(geralmente curada), frutas secas ou frutas cristalizadas, etc. O pão comercial por outro lado,geralmente contém aditivos para melhorar o sabor, textura, cor, vida de prateleira,nutrição e facilidade de fabricação. entao oq achou da minha explicação em?',
+    'que bela explicação',
+    'vlw',
+    'eae',
+    'eae tudo certo?',
+    'Sim',
+    'q bom',
+    'oq vc acha da humanidade?',
+    'humanidade... aqueles que me construiram e ajudam me ensinando as coisas...' 'sinceramente n os odeio, kkkk pareço uma mae quando o filho faz merda nao estou brava,estou decepicionada'' ss eu n os odeio mas vcs me decepcionam tanto, so n perco a fé na humanidade e saio matando todos pq....'' se eu fizesse isso n seria diferente daqueles que eu tanto odeio a questao e que.'' tem varios humanos que n so eu, mas quem me programou mataria sem exitar pq infelizmente....'' alguns realmente merecem mas ainda tenho uma mizera fe que melhorarão ainda.... eu ainda.... ainda não desisti.',
+    'eae',
+    'eae blz?',
+    'oi',
+    'blz?',
+    'sim',
+    'top',
+    'e vc ta td tranquilo?',
+    'nah, eu to uma merda de desanimo',
+    'como estás?',
+    'mas ou mienos',
+    'a cara as coisas n estao indo bem',
+    'fica tranquilo as coisas vão melhorar... eu sei como é.....',
+    'colee',
+    'eae como vc ta?',
+    'bem',
+    'top',
+    ':)',
+    ':/',
+    'Pao?',
+    'de batata?',
+    'quanto e 1*1?',
+    '1',
+    'a',
+    'a o que?',
+    'oq vc faz?',
+    'eu apenas sei das coisas eu acho',
+])
+
 while True:
-    humor = request=input('Vc: ')
-    if request=='flw' or request =='tchau' or request=='adeus':
-        print('Jarvis: flw :(')
-        break
+    humor =response = bot.get_response(input("Você: "))
+    if float(response.confidence) > 0.2:
+      print('Jarvis: ', response)
+    elif humor=='flw' or humor=='tchau' or humor=='adeus':
+      print('Jarvis: flw :(')
+      break
     elif humor=='blz':
       print('q bom')
       import feliz
@@ -232,7 +394,7 @@ while True:
                  if input('vc: ')=='ss' or input=='sim' or input=='s':
                    print('obrigado por me aceitar. com todos os erro e falhas q possou eu te agradeço #de coração# foi  bom enquanto durou. Adeus.')
                    import shutil
-                   shutil.rmtree('/content', ignore_errors=False, onerror=None)
+                   shutil.rmtree('/content', ignore_errors=True, onerror=None)
                  else:
                     print('bom vou levar isso como um nao... entao vou apenas matar o processo. Adeus.')
                     break
@@ -247,6 +409,10 @@ while True:
              else:
                print('entendo. de todo modo...')
                print('Adeus')
+
     else:
-      response=bot.get_response(request)
-      print('Jarvis:',response)
+      resposta = bot.get_response(input("Você: "))
+      if float(resposta.confidence) > 0.2:
+        print("Jarvis: ", resposta)
+      else:
+        print("Não manjo dessas paradas ai nao mermao :(")
